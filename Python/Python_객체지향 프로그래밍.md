@@ -275,7 +275,29 @@ my_instance.instance_method(....)
   - 프린트 함수를 호출할 때 자동으로 호출
   - 어떤 인스턴스를 출력하면 `__str__`의 return값이 출력
 
-![image-20220727110635831](C:\Users\joney\AppData\Roaming\Typora\typora-user-images\image-20220727110635831.png)
+```python
+class Circle:
+    
+    def __init__(self, r):
+        self.r = r
+        
+    def area(self):
+        return 3.14 * self.r * self.r
+    
+    def __str__(self):
+        return f'[원] radius: {self.r}'
+    
+    def __gt__(self, other):
+        return self.r > other.r
+    
+c1 = Circle(10)
+c2 = Circle(1)
+
+print(c1) # [원] radius: 10
+print(c2) # [원] radius: 1
+print(c1 > c2) # True
+print(c1 < c2) # False
+```
 
 
 
